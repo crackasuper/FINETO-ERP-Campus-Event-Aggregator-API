@@ -30,13 +30,27 @@ def fetch_events_from_source_one():
 
     return [
         {
-            "title": e.get["name"],
-            "location": e.get["venue"],
-            "start_time": e.get["date"],
+            "title": event.get("name"),
+            "location": event.get["venue"],
+            "start_time": event.get["date"],
             "source": "Source One",
         }
-        for e in data
+        for event in data
     ]
 
 #defining functions that fetches and normalizes events from second sources
-            
+def fetch_events_from_source_two():
+    response = requests.get(SOURCE_TWO_API, timeout = 10) #10 seconds timeout
+
+    data = response.json()
+
+    return [
+        {
+            "title": event.get("title"),
+            "location": event.get("location"),
+            "start_time": event.get("start_time"),
+            "source": "Source Two",
+        }
+        for event in data
+    ]            
+
