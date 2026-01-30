@@ -31,6 +31,8 @@ def EventListView(APIView):
         source_filter = request.query_params.get("source")
         if source_filter:
             events = [event for event in events if event["source"] == source_filter]
-            
+
         return Response(events)
+    
+
 
