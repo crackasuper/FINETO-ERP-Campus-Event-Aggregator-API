@@ -1,4 +1,3 @@
-from django.shortcuts import render
 
 from django.core.cache import cache 
 from rest_framework.views import APIView
@@ -12,7 +11,7 @@ CACHE_KEY = "aggregated_events"
 CACHE_TIMEOUT = 300  #5 minutes
 
 #preparing event listing view for aggregating events from multiple sources
-def EventListView(APIView):
+class EventListView(APIView):
     def get(self, request):
         #checking if cached data exists
         events = cache.get(CACHE_KEY)
