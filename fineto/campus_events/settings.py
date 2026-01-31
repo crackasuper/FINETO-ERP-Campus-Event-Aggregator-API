@@ -58,6 +58,20 @@ MIDDLEWARE = [
 ROOT_URLCONF = "campus_events.urls"
 CORS_ALLOW_ALL_ORIGINS = True
 
+#Adding trusted origins for CSRF
+CSRF_TRUSTED_ORIGINS = [
+    # Adding GitHub.dev and localhost for development purposes
+    "https://*.github.dev",
+    "https://*.githubpreview.dev",
+
+    # Localhost entries
+    "https://localhost:8000",
+    "http://localhost:8000",
+    "http://127.0.0.1:8000",
+]
+
+
+
 TEMPLATES = [
     {
         "BACKEND": "django.template.backends.django.DjangoTemplates",
