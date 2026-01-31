@@ -40,10 +40,12 @@ INSTALLED_APPS = [
 
     # adding rest_framework and the app
     "rest_framework",
-    "events"
+    "events",
+    "corsheaders"
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -54,6 +56,7 @@ MIDDLEWARE = [
 ]
 
 ROOT_URLCONF = "campus_events.urls"
+CORS_ALLOW_ALL_ORIGINS = True
 
 TEMPLATES = [
     {

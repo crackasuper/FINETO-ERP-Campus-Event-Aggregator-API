@@ -1,6 +1,8 @@
 
 from django.core.cache import cache 
 from rest_framework.views import APIView
+from django.views.decorators.csrf import csrf_exempt
+from django.utils.decorators import method_decorator
 from rest_framework.response import Response
 from .services import fetch_events_from_source_two, fetch_events_from_source_one
 
@@ -11,6 +13,7 @@ CACHE_KEY = "aggregated_events"
 CACHE_TIMEOUT = 300  #5 minutes
 
 #preparing event listing view for aggregating events from multiple sources
+@method_decorator(csrf_exempt, name="dispatch")
 class EventListView(APIView):
     def get(self, request):
         #checking if cached data exists

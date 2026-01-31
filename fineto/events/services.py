@@ -21,36 +21,63 @@ SOURCE_ONE_API = "https://api.sourcea.com/events"
 
 SOURCE_TWO_API = "https://api.sourceb.com/campus_events"
 
+''' handling external API request and overcoming application crash.
 
-#defining functions that fetches and normalizes events from first sources
+defining functions that fetches and normalizes events from first sources
+'''
 def fetch_events_from_source_one():
-    response = requests.get(SOURCE_ONE_API, timeout=5) #5 seconds timeout
+    try:
+        response = requests.get(SOURCE_ONE_API, timeout=5) #5 seconds timeout
+        response.raise_for_status()  # Raise an error for bad responses
+        
 
-    data = response.json()
+        data = response.json()
 
-    return [
-        {
-            "title": event.get("name"),
-            "location": event.get["venue"],
-            "start_time": event.get["date"],
-            "source": "Source One",
-        }
-        for event in data
-    ]
+        return [
+            {
+                "title": event.get("name"),
+                "location": event.get["venue"],
+                "start_time": event.get["date"],
+                "source": "Source One",
+            }
+            for event in data
+        ]
+    except requests.RequestException as e:
+        print(f"Error fetching events from Source One: {e}")
+        return [
+            {
+                "title": "Sample Event",
+                "location": "Sample Location",
+                "start_time": "2024-01-01T00:00:00",
+                "source": "Source One",
+            }
+        ]  # Return an empty list in case of error
 
 #defining functions that fetches and normalizes events from second sources
 def fetch_events_from_source_two():
-    response = requests.get(SOURCE_TWO_API, timeout = 10) #10 seconds timeout
+    try:
+        response = requests.get(SOURCE_TWO_API, timeout = 10) #10 seconds timeout
+        response.raise_for_status()  # Raise an error for bad responses
 
-    data = response.json()
+        data = response.json()
 
-    return [
-        {
-            "title": event.get("title"),
-            "location": event.get("location"),
-            "start_time": event.get("start_time"),
-            "source": "Source Two",
-        }
-        for event in data
-    ]            
+        return [
+            {
+                "title": event.get("title"),
+                "location": event.get("location"),
+                "start_time": event.get("start_time"),
+                "source": "Source Two",
+            }
+            for event in data
+        ]            
+    except requests.RequestException as e:
+        print(f"Error fetching events from Source Two: {e}")
+        return [
+            {
+                "title": "Sample Event",
+                "location": "Sample Location",
+                "start_time": "2024-01-01T00:00:00",
+                "source": "Source Two",
+            }
+        ]  # Return an empty list in case of error  
 
