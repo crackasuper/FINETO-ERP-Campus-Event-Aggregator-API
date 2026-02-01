@@ -60,10 +60,7 @@ CORS_ALLOW_ALL_ORIGINS = True
 
 #Adding trusted origins for CSRF
 CSRF_TRUSTED_ORIGINS = [
-    # Adding GitHub.dev and localhost for development purposes
-    "https://*.github.dev",
-    "https://*.githubpreview.dev",
-
+    
     # Localhost entries
     "https://localhost:8000",
     "http://localhost:8000",

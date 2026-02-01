@@ -11,7 +11,7 @@ def normalize_event(title, location, start_time, source):
 
         "start_time": start_time,
 
-        "spource": source,
+        "source": source,
 
     }
 
@@ -46,7 +46,7 @@ def fetch_events_from_source_one():
         print(f"Error fetching events from Source One: {e}")
         return [
             {
-                "title": "Sample Event",
+                "title": "This is Sample Event",
                 "location": "Sample Location",
                 "start_time": "2024-01-01T00:00:00",
                 "source": "Source One",
@@ -74,7 +74,7 @@ def fetch_events_from_source_two():
         print(f"Error fetching events from Source Two: {e}")
         return [
             {
-                "title": "Sample Event",
+                "title": "sample Sample Event",
                 "location": "Sample Location",
                 "start_time": "2024-01-01T00:00:00",
                 "source": "Source Two",
