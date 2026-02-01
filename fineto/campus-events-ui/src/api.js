@@ -1,7 +1,7 @@
 
 import axios from 'axios';
 
-const API_URL = 'https://127.0.0.1:8000/events';
+const API_URL = 'https://127.0.0.1:8000/api/events';
 
 
 export const fetchEvents = (source) => {
