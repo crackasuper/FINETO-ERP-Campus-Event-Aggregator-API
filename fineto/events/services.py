@@ -46,7 +46,7 @@ def fetch_events_from_source_one():
         print(f"Error fetching events from Source One: {e}")
         return [
             {
-                "title": "This is Sample Event",
+                "title": "Sample Event from source one",
                 "location": "Sample Location",
                 "start_time": "2024-01-01T00:00:00",
                 "source": "Source One",
@@ -74,7 +74,7 @@ def fetch_events_from_source_two():
         print(f"Error fetching events from Source Two: {e}")
         return [
             {
-                "title": "sample Sample Event",
+                "title": "Sample Event from source two",
                 "location": "Sample Location",
                 "start_time": "2024-01-01T00:00:00",
                 "source": "Source Two",
