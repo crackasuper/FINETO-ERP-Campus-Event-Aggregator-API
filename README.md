@@ -108,8 +108,13 @@ Django REST API
 ```
 
 ### Backend
+insure you have new version python installed in your system.
 
 ```bash
+cd fineto
+source bin/activate #for linux
+source\bin\activate # for windows
+install django djangorestframework django-cors-headers django-redis
 python manage.py migrate
 python manage.py runserver
 ```
@@ -117,6 +122,7 @@ python manage.py runserver
 ### Frontend
 
 ```bash
+cd fineto
 npm install
 npm start
 ```
