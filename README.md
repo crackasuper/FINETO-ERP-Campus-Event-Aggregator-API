@@ -101,13 +101,13 @@ Django REST API
 
 ## Running the Project (Quick Start)
 
-### Backend
-
 ```bash
-  clone the project
+
   git clone https://github.com/crackasuper/FINETO-ERP-Campus-Event-Aggregator-API
 
 ```
+
+### Backend
 
 ```bash
 python manage.py migrate
