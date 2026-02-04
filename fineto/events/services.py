@@ -17,7 +17,7 @@ def normalize_event(title, location, start_time, source):
 
 
 #defining two external mock APIs
-SOURCE_ONE_API = "https://api.sourcea.com/events"
+SOURCE_ONE_API = "https://github.com/crackasuper/FINETO-ERP-Campus-Event-Aggregator-API/blob/main/fineto/events/schema.json"
 
 SOURCE_TWO_API = "https://api.sourceb.com/campus_events"
 
